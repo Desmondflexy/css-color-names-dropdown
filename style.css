@@ -1,0 +1,48 @@
+body {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
+}
+
+.outer {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form {
+    font-size: 1em;
+    padding: 0.5em;
+    border: none;
+    box-shadow: 2px 2px 5px #888;
+    background-color: #f0f0f0;
+}
+
+.form:focus {
+    outline: 2px solid #888;
+}
+
+h2 {
+    font-family: papyrus, Helvetica, sans-serif;
+    text-shadow: 2px 1px 2px #888;
+    font-size: 2em;
+    border: 0 solid;
+    border-top-width: 200px;
+    border-bottom-width: 200px;
+    box-shadow: 2px 2px 5px #888;
+    text-align: center;
+}
+
+.under{
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    color: #a9a9a9;
+    font-weight: 700;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5em;
+}
