@@ -1,7 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: #555;
+    font-size: .5em;
 }
 
 .outer {
@@ -10,11 +15,14 @@ body {
 }
 
 .form {
-    font-size: 1em;
+    font-size: 16px;
     padding: 0.5em;
     border: none;
     box-shadow: 2px 2px 5px #888;
     background-color: #f0f0f0;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .form:focus {
@@ -24,7 +32,7 @@ body {
 h2 {
     font-family: papyrus, Helvetica, sans-serif;
     text-shadow: 2px 1px 2px #888;
-    font-size: 2em;
+    font-size: 1.8em;
     border: 0 solid;
     border-top-width: 200px;
     border-bottom-width: 200px;
@@ -32,17 +40,36 @@ h2 {
     text-align: center;
 }
 
-.under{
+.under {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
 }
 
-input{
+input {
     color: #a9a9a9;
     font-weight: 700;
 }
 
-h1{
+h1 {
     text-align: center;
     font-size: 2.5em;
+    margin: 0;
+}
+
+@media (min-width: 500px) {
+    body {
+        font-size: .7em;
+    }
+}
+
+@media (min-width: 720px) {
+    body {
+        font-size: 1em;
+    }
+
+    .under {
+        flex-direction: row;
+    }
 }
