@@ -23,6 +23,8 @@ body {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+    color: #a9a9a9;
+    font-weight: 700;
 }
 
 .form:focus {
@@ -45,11 +47,6 @@ h2 {
     justify-content: space-between;
     flex-direction: column;
     gap: 10px;
-}
-
-input {
-    color: #a9a9a9;
-    font-weight: 700;
 }
 
 h1 {

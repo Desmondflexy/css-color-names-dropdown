@@ -1,10 +1,4 @@
-const select = document.querySelector('select');
-const heading = document.querySelector('h2');
-const hex = document.querySelector('#hex');
-const rgb = document.querySelector('#rgb');
-const form = document.querySelectorAll('.form');
-
-// populate the select options
+// color data
 const colors = {
     'AliceBlue': '#F0F8FF',
     'AntiqueWhite': '#FAEBD7',
@@ -154,23 +148,39 @@ const colors = {
     'WhiteSmoke': '#F5F5F5',
     'Yellow': '#FFFF00',
     'YellowGreen': '#9ACD32'
-}
+};
 
+const selectcolor = document.querySelector('#color');
+const heading = document.querySelector('h2');
+const hex = document.querySelector('#hex');
+const rgb = document.querySelector('#rgb');
+const form = document.querySelectorAll('.form');
+
+const hexColors = Object.values(colors).sort();
+
+// populate the select options
 for (let color in colors) {
     const option = document.createElement('option');
     option.textContent = color;
-    option.value = color;
-    select.appendChild(option);
+    option.value = option.textContent;
+    selectcolor.appendChild(option);
 }
 
-const first_color = select.value
+for (let code of hexColors) {
+    const option = document.createElement('option');
+    option.textContent = code;
+    option.value = option.textContent;
+    hex.appendChild(option);
+}
+
+const first_color = selectcolor.value
 heading.innerHTML = first_color.toUpperCase();
 heading.style.color = first_color;
 hex.value = colors[first_color];
 rgb.value = hex2rgb(hex.value);
 
-select.onchange = () => {
-    const color = select.value;
+selectcolor.onchange = () => {
+    const color = selectcolor.value;
     heading.style.color = color;
     heading.innerHTML = color.toUpperCase();
     
@@ -181,6 +191,18 @@ select.onchange = () => {
     rgb.value = hex2rgb(hex.value);
 }
 
+hex.onchange = () => {
+    const color = getObjKey(colors, hex.value);
+    heading.style.color = color;
+    heading.innerHTML = color.toUpperCase();
+    
+    form.forEach(element => {
+        element.style.boxShadow = `2px 2px 5px ${color}`
+    });
+    rgb.value = hex2rgb(hex.value);
+    selectcolor.value = color;
+}
+
 /**Convert color in HEX format to RGB format */
 function hex2rgb(str) {
     const r = parseInt(str.slice(1, 3), 16);
@@ -188,3 +210,8 @@ function hex2rgb(str) {
     const b = parseInt(str.slice(5, 7), 16);
     return `RGB(${r}, ${g}, ${b})`
 }
+
+/**Get an object's key by its value */
+function getObjKey(obj, value) {
+    return Object.keys(obj).find(key => obj[key] === value);
+  }
