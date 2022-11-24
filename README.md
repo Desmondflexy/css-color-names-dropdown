@@ -1,3 +1,3 @@
 # css-color-names-dropdown
 
-[https://csscolornamesbyflexy.netlify.app/](View the hosted website)
+[View the website here](https://csscolornamesbyflexy.netlify.app/)
