@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -50,6 +52,7 @@ h2 {
     border-bottom-width: 200px;
     box-shadow: 2px 2px 5px #888;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .under {
@@ -72,5 +75,19 @@ h2 {
 
     .under {
         flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+    body{
+        font-size: 1.4em;
+    }
+
+    .outer {
+        max-width: 1000px;
+    }
+
+    .form{
+        font-size: 24px;
     }
 }
