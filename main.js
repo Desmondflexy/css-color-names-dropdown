@@ -183,7 +183,7 @@ selectcolor.onchange = () => {
     const color = selectcolor.value;
     heading.style.color = color;
     heading.innerHTML = color.toUpperCase();
-    
+
     form.forEach(element => {
         element.style.boxShadow = `2px 2px 5px ${color}`
     });
@@ -195,7 +195,7 @@ hex.onchange = () => {
     const color = getObjKey(colors, hex.value);
     heading.style.color = color;
     heading.innerHTML = color.toUpperCase();
-    
+
     form.forEach(element => {
         element.style.boxShadow = `2px 2px 5px ${color}`
     });
@@ -214,4 +214,4 @@ function hex2rgb(str) {
 /**Get an object's key by its value */
 function getObjKey(obj, value) {
     return Object.keys(obj).find(key => obj[key] === value);
-  }
+}
