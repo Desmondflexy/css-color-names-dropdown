@@ -1,15 +1,12 @@
-/* Small to larger screen */
-
 * {
     box-sizing: border-box;
 }
 
 body {
-    padding: 20px;
+    padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: #555;
-    font-size: .6em;
-    width: 100%;
+    font-size: .5em;
 }
 
 .outer {
@@ -19,7 +16,7 @@ body {
 
 .form {
     font-size: 16px;
-    padding: 5px;
+    padding: 0.5em;
     border: none;
     box-shadow: 2px 2px 5px #888;
     background-color: #f0f0f0;
@@ -34,17 +31,10 @@ body {
     outline: 2px solid #888;
 }
 
-h1 {
-    text-align: center;
-    font-size: 3em;
-    margin: 0;
-    padding: 0;
-}
-
 h2 {
-    font-family: Helvetica, sans-serif;
+    font-family: papyrus, Helvetica, sans-serif;
     text-shadow: 2px 1px 2px #888;
-    font-size: 2.5em;
+    font-size: 1.8em;
     border: 0 solid;
     border-top-width: 200px;
     border-bottom-width: 200px;
@@ -59,9 +49,15 @@ h2 {
     gap: 10px;
 }
 
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0;
+}
+
 @media (min-width: 500px) {
     body {
-        font-size: .8em;
+        font-size: .7em;
     }
 }
 
