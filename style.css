@@ -6,12 +6,15 @@ body {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: #555;
-    font-size: .5em;
+    font-size: .6em;
+    width: 100%;
+    min-width: 300px;
 }
 
 .outer {
     max-width: 700px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .form {
@@ -31,10 +34,17 @@ body {
     outline: 2px solid #888;
 }
 
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0;
+}
+
 h2 {
-    font-family: papyrus, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     text-shadow: 2px 1px 2px #888;
-    font-size: 1.8em;
+    font-size: 2.5em;
     border: 0 solid;
     border-top-width: 200px;
     border-bottom-width: 200px;
@@ -49,19 +59,13 @@ h2 {
     gap: 10px;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.5em;
-    margin: 0;
-}
-
-@media (min-width: 500px) {
+@media (min-width: 425px) {
     body {
-        font-size: .7em;
+        font-size: .8em;
     }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 768px) {
     body {
         font-size: 1em;
     }
