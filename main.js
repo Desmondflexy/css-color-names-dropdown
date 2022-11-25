@@ -1,207 +1,72 @@
-// color data
-const colors = {
-    'AliceBlue': '#F0F8FF',
-    'AntiqueWhite': '#FAEBD7',
-    'Aqua': '#00FFFF',
-    'Aquamarine': '#7FFFD4',
-    'Azure': '#F0FFFF',
-    'Beige': '#F5F5DC',
-    'Bisque': '#FFE4C4',
-    'Black': '#000000',
-    'BlanchedAlmond': '#FFEBCD',
-    'Blue': '#0000FF',
-    'BlueViolet': '#8A2BE2',
-    'Brown': '#A52A2A',
-    'BurlyWood': '#DEB887',
-    'CadetBlue': '#5F9EA0',
-    'Chartreuse': '#7FFF00',
-    'Chocolate': '#D2691E',
-    'Coral': '#FF7F50',
-    'CornflowerBlue': '#6495ED',
-    'Cornsilk': '#FFF8DC',
-    'Crimson': '#DC143C',
-    'Cyan': '#00FFFF',
-    'DarkBlue': '#00008B',
-    'DarkCyan': '#008B8B',
-    'DarkGoldenRod': '#B8860B',
-    'DarkGray': '#A9A9A9',
-    'DarkGrey': '#A9A9A9',
-    'DarkGreen': '#006400',
-    'DarkKhaki': '#BDB76B',
-    'DarkMagenta': '#8B008B',
-    'DarkOliveGreen': '#556B2F',
-    'DarkOrange': '#FF8C00',
-    'DarkOrchid': '#9932CC',
-    'DarkRed': '#8B0000',
-    'DarkSalmon': '#E9967A',
-    'DarkSeaGreen': '#8FBC8F',
-    'DarkSlateBlue': '#483D8B',
-    'DarkSlateGray': '#2F4F4F',
-    'DarkSlateGrey': '#2F4F4F',
-    'DarkTurquoise': '#00CED1',
-    'DarkViolet': '#9400D3',
-    'DeepPink': '#FF1493',
-    'DeepSkyBlue': '#00BFFF',
-    'DimGray': '#696969',
-    'DimGrey': '#696969',
-    'DodgerBlue': '#1E90FF',
-    'FireBrick': '#B22222',
-    'FloralWhite': '#FFFAF0',
-    'ForestGreen': '#228B22',
-    'Fuchsia': '#FF00FF',
-    'Gainsboro': '#DCDCDC',
-    'GhostWhite': '#F8F8FF',
-    'Gold': '#FFD700',
-    'GoldenRod': '#DAA520',
-    'Gray': '#808080',
-    'Grey': '#808080',
-    'Green': '#008000',
-    'GreenYellow': '#ADFF2F',
-    'HoneyDew': '#F0FFF0',
-    'HotPink': '#FF69B4',
-    'IndianRed': '#CD5C5C',
-    'Indigo': '#4B0082',
-    'Ivory': '#FFFFF0',
-    'Khaki': '#F0E68C',
-    'Lavender': '#E6E6FA',
-    'LavenderBlush': '#FFF0F5',
-    'LawnGreen': '#7CFC00',
-    'LemonChiffon': '#FFFACD',
-    'LightBlue': '#ADD8E6',
-    'LightCoral': '#F08080',
-    'LightCyan': '#E0FFFF',
-    'LightGoldenRodYellow': '#FAFAD2',
-    'LightGray': '#D3D3D3',
-    'LightGrey': '#D3D3D3',
-    'LightGreen': '#90EE90',
-    'LightPink': '#FFB6C1',
-    'LightSalmon': '#FFA07A',
-    'LightSeaGreen': '#20B2AA',
-    'LightSkyBlue': '#87CEFA',
-    'LightSlateGray': '#778899',
-    'LightSlateGrey': '#778899',
-    'LightSteelBlue': '#B0C4DE',
-    'LightYellow': '#FFFFE0',
-    'Lime': '#00FF00',
-    'LimeGreen': '#32CD32',
-    'Linen': '#FAF0E6',
-    'Magenta': '#FF00FF',
-    'Maroon': '#800000',
-    'MediumAquaMarine': '#66CDAA',
-    'MediumBlue': '#0000CD',
-    'MediumOrchid': '#BA55D3',
-    'MediumPurple': '#9370DB',
-    'MediumSeaGreen': '#3CB371',
-    'MediumSlateBlue': '#7B68EE',
-    'MediumSpringGreen': '#00FA9A',
-    'MediumTurquoise': '#48D1CC',
-    'MediumVioletRed': '#C71585',
-    'MidnightBlue': '#191970',
-    'MintCream': '#F5FFFA',
-    'MistyRose': '#FFE4E1',
-    'Moccasin': '#FFE4B5',
-    'NavajoWhite': '#FFDEAD',
-    'Navy': '#000080',
-    'OldLace': '#FDF5E6',
-    'Olive': '#808000',
-    'OliveDrab': '#6B8E23',
-    'Orange': '#FFA500',
-    'OrangeRed': '#FF4500',
-    'Orchid': '#DA70D6',
-    'PaleGoldenRod': '#EEE8AA',
-    'PaleGreen': '#98FB98',
-    'PaleTurquoise': '#AFEEEE',
-    'PaleVioletRed': '#DB7093',
-    'PapayaWhip': '#FFEFD5',
-    'PeachPuff': '#FFDAB9',
-    'Peru': '#CD853F',
-    'Pink': '#FFC0CB',
-    'Plum': '#DDA0DD',
-    'PowderBlue': '#B0E0E6',
-    'Purple': '#800080',
-    'RebeccaPurple': '#663399',
-    'Red': '#FF0000',
-    'RosyBrown': '#BC8F8F',
-    'RoyalBlue': '#4169E1',
-    'SaddleBrown': '#8B4513',
-    'Salmon': '#FA8072',
-    'SandyBrown': '#F4A460',
-    'SeaGreen': '#2E8B57',
-    'SeaShell': '#FFF5EE',
-    'Sienna': '#A0522D',
-    'Silver': '#C0C0C0',
-    'SkyBlue': '#87CEEB',
-    'SlateBlue': '#6A5ACD',
-    'SlateGray': '#708090',
-    'SlateGrey': '#708090',
-    'Snow': '#FFFAFA',
-    'SpringGreen': '#00FF7F',
-    'SteelBlue': '#4682B4',
-    'Tan': '#D2B48C',
-    'Teal': '#008080',
-    'Thistle': '#D8BFD8',
-    'Tomato': '#FF6347',
-    'Turquoise': '#40E0D0',
-    'Violet': '#EE82EE',
-    'Wheat': '#F5DEB3',
-    'White': '#FFFFFF',
-    'WhiteSmoke': '#F5F5F5',
-    'Yellow': '#FFFF00',
-    'YellowGreen': '#9ACD32'
-};
-
 const selectcolor = document.querySelector('#color');
 const heading = document.querySelector('h2');
 const hex = document.querySelector('#hex');
 const rgb = document.querySelector('#rgb');
 const form = document.querySelectorAll('.form');
+const hexDatalist = document.querySelector('datalist');
 
-const hexColors = Object.values(colors).sort();
+fetch('./colornames.json')
+    .then(response => response.json())
+    .then(colors => {
+        const hexColors = Object.values(colors).sort();
 
-// populate the select options
-for (let color in colors) {
-    const option = document.createElement('option');
-    option.textContent = color;
-    option.value = option.textContent;
-    selectcolor.appendChild(option);
-}
+        // populate the select options
 
-for (let code of hexColors) {
-    const option = document.createElement('option');
-    option.textContent = code;
-    option.value = option.textContent;
-    hex.appendChild(option);
-}
+        for (let colorname in colors) {
+            const option = document.createElement('option');
+            option.value = colorname;
+            option.textContent = colorname;
+            selectcolor.appendChild(option);
+        }
 
-const first_color = selectcolor.value
-heading.innerHTML = first_color.toUpperCase();
-heading.style.color = first_color;
-hex.value = colors[first_color];
-rgb.value = hex2rgb(hex.value);
+        for (let colorcode of hexColors) {
+            const option = document.createElement('option');
+            option.value = colorcode;
+            option.textContent = getObjKey(colors, colorcode);
+            hexDatalist.appendChild(option);
+        }
 
-selectcolor.onchange = () => {
-    const color = selectcolor.value;
-    heading.style.color = color;
-    heading.innerHTML = color.toUpperCase();
-    
-    form.forEach(element => {
-        element.style.boxShadow = `2px 2px 5px ${color}`
+        // initial form values
+        const first_color = selectcolor.value
+        const first_code = colors[first_color];
+        heading.innerHTML = first_color.toUpperCase();
+        heading.style.color = first_code;
+        hex.value = first_code;
+        rgb.value = hex2rgb(first_code);
+
+        selectcolor.onchange = () => {
+            const colorname = selectcolor.value;
+            const colorcode = colors[colorname];
+            heading.style.color = colorcode;
+            heading.innerHTML = colorname.toUpperCase();
+
+            form.forEach(element => {
+                element.style.boxShadow = `2px 2px 5px ${colorcode}`
+            });
+            hex.value = colorcode;
+            rgb.value = hex2rgb(colorcode);
+        }
+
+        hex.oninput = () => {
+            const colorcode = hex.value.toUpperCase();
+            const colorname = getObjKey(colors, colorcode);
+            heading.style.color = colorcode;
+            
+            if (colorname !== undefined){
+                heading.innerHTML = colorname.toUpperCase();
+                selectcolor.value = colorname;
+            } else {
+                heading.innerHTML = 'NO DEFINED NAME';
+                selectcolor.value = '';
+            }
+            form.forEach(element => {
+                element.style.boxShadow = `2px 2px 5px ${colorcode}`
+            });
+            rgb.value = hex2rgb(colorcode);
+            
+        }
     });
-    hex.value = colors[color];
-    rgb.value = hex2rgb(hex.value);
-}
 
-hex.onchange = () => {
-    const color = getObjKey(colors, hex.value);
-    heading.style.color = color;
-    heading.innerHTML = color.toUpperCase();
-    
-    form.forEach(element => {
-        element.style.boxShadow = `2px 2px 5px ${color}`
-    });
-    rgb.value = hex2rgb(hex.value);
-    selectcolor.value = color;
-}
 
 /**Convert color in HEX format to RGB format */
 function hex2rgb(str) {
@@ -214,4 +79,4 @@ function hex2rgb(str) {
 /**Get an object's key by its value */
 function getObjKey(obj, value) {
     return Object.keys(obj).find(key => obj[key] === value);
-  }
+}
