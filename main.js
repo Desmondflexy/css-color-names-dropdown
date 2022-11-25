@@ -47,23 +47,23 @@ fetch('./colornames.json')
             rgb.value = hex2rgb(colorcode);
         }
 
-        hex.oninput = () => {
+        hex.onchange = () => {
             const colorcode = hex.value.toUpperCase();
             const colorname = getObjKey(colors, colorcode);
             heading.style.color = colorcode;
-            
-            if (colorname !== undefined){
+
+            if (colorname !== undefined) {
                 heading.innerHTML = colorname.toUpperCase();
                 selectcolor.value = colorname;
             } else {
-                heading.innerHTML = 'NO DEFINED NAME';
+                heading.innerHTML = colorcode;
                 selectcolor.value = '';
             }
             form.forEach(element => {
                 element.style.boxShadow = `2px 2px 5px ${colorcode}`
             });
             rgb.value = hex2rgb(colorcode);
-            
+
         }
     });
 
