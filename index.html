@@ -16,13 +16,20 @@
         <h2></h2>
         <div class="under">
             <select class="form" name="color" id="color"></select>
-            <input class="form" type="text" list="colors" id="hex" maxlength="7" placeholder="#1234AB">
-            <datalist id="colors">
-
-            </datalist>
-            <input class="form" type="text" readonly id="rgb">
+            <output class="form" id="hex"></output>
+            <output class="form" id="rgb"></output>
         </div>
+        <fieldset>
+            <legend>RGB Slider</legend>
+            <div class="under">
+                <input class="rgb-slider" type="range" id="red" min="0" max="255">
+                <input class="rgb-slider" type="range" id="green" min="0" max="255">
+                <input class="rgb-slider" type="range" id="blue" min="0" max="255">
+            </div>
+        </fieldset>
     </div>
+    <footer>Coded by Desmond with HTML, CSS and Javascript</footer>
+    
 </body>
 
 </html>

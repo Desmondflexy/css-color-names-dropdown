@@ -19,7 +19,12 @@ body {
     width: 100%;
 }
 
-.form {
+.outer>*{
+    margin: 20px;
+}
+
+.form,
+.rgb-slider {
     font-size: 16px;
     padding: 0.5em;
     border: none;
@@ -35,7 +40,6 @@ body {
 .form:focus {
     outline: 2px solid #888;
 }
-
 
 h1 {
     text-align: center;
@@ -60,10 +64,27 @@ h2 {
     justify-content: space-between;
     flex-direction: column;
     gap: 10px;
+    /* margin: 20px 0; */
 }
 
-input::placeholder{
+input::placeholder {
     color: #d0d0d0;
+}
+
+fieldset {
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+
+legend {
+    background-color: #4c4c4c;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+footer{
+    text-align: center;
 }
 
 @media (min-width: 425px) {
@@ -83,7 +104,7 @@ input::placeholder{
 }
 
 @media (min-width: 1024px) {
-    body{
+    body {
         font-size: 1.3em;
     }
 
@@ -91,7 +112,7 @@ input::placeholder{
         max-width: 1000px;
     }
 
-    .form{
+    .form {
         font-size: 24px;
     }
 }
