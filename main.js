@@ -16,10 +16,13 @@ fetch('./colornames.json')
         // populate the select options
         Object.keys(colors).forEach(colorname => {
             const option = document.createElement('option');
-            option.value = colorname;
             option.textContent = colorname;
             selectcolor.appendChild(option);
         })
+        const no_name = document.createElement('option');
+        no_name.textContent = 'No name defined';
+        selectcolor.appendChild(no_name);
+        no_name.setAttribute('hidden', 'hidden');
 
         // initial form values
         const first_color = selectcolor.value
@@ -63,7 +66,7 @@ fetch('./colornames.json')
                     selectcolor.value = colorname;
                 } else {
                     heading.innerHTML = colorcode;
-                    selectcolor.value = '';
+                    selectcolor.value = no_name.textContent;
                 }
                 hex.value = colorcode;
                 rgb.innerHTML = hex2rgb(colorcode);
