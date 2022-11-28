@@ -14,7 +14,7 @@ fetch('./colornames.json')
     .then(colors => {
 
         // populate the select options
-        Object.keys(colors).forEach(colorname => {
+        Object.keys(colors).sort().forEach(colorname => {
             const option = document.createElement('option');
             option.textContent = colorname;
             selectcolor.appendChild(option);
@@ -76,6 +76,33 @@ fetch('./colornames.json')
                 });
             }
         })
+
+        hex.oninput = () => {
+            hex.value = hex.value.toUpperCase();
+            const colorcode = hex.value;
+            const colorname = getObjKey(colors, colorcode);
+            heading.style.color = colorcode;
+
+            if (colorname !== undefined) {
+                heading.innerHTML = colorname.toUpperCase();
+                selectcolor.value = colorname;
+            } else {
+                heading.innerHTML = colorcode;
+                selectcolor.value = no_name.textContent;
+            }
+            rgb.innerHTML = hex2rgb(colorcode);
+
+            sliders.forEach(slider => {
+                slider.value = document.getElementById(`rgb-${slider.id}`).textContent;
+            })
+            document.querySelectorAll('.form, .rgb-slider').forEach(element => {
+                element.style.boxShadow = `2px 2px 5px ${colorcode}`
+            });
+            if (hex.value.length < 1) {
+                hex.value = '#';
+                heading.innerHTML = hex.value;
+            }
+        }
     });
 
 

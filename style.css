@@ -71,6 +71,10 @@ input::placeholder {
     color: #d0d0d0;
 }
 
+input#hex:invalid {
+    background-color: lightpink;
+}
+
 fieldset {
     border-radius: 5px;
     padding: 20px 15px;
