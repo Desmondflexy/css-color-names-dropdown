@@ -19,8 +19,8 @@ body {
     width: 100%;
 }
 
-.outer>*{
-    margin: 20px;
+.outer>* {
+    margin: 15px 20px;
 }
 
 .form,
@@ -42,9 +42,11 @@ body {
 }
 
 h1 {
+    background-color: #4c4c4c;
+    color: #3c3c3c;
     text-align: center;
     font-size: 2.5em;
-    margin: 0;
+    padding: 5px;
 }
 
 h2 {
@@ -52,8 +54,8 @@ h2 {
     text-shadow: 2px 1px 2px #888;
     font-size: 2.5em;
     border: 0 solid;
-    border-top-width: 200px;
-    border-bottom-width: 200px;
+    border-top-width: 100px;
+    border-bottom-width: 100px;
     box-shadow: 2px 2px 5px #888;
     text-align: center;
     margin-bottom: 20px;
@@ -77,7 +79,7 @@ input#hex:invalid {
 
 fieldset {
     border-radius: 5px;
-    padding: 20px 15px;
+    padding: 10px 15px 20px 15px;
 }
 
 legend {
@@ -87,7 +89,7 @@ legend {
     border-radius: 3px;
 }
 
-footer{
+footer {
     text-align: center;
 }
 
@@ -105,11 +107,27 @@ footer{
     .under {
         flex-direction: row;
     }
+
+    h2 {
+        border-top-width: 120px;
+        border-bottom-width: 120px;
+    }
+
+    fieldset {
+        padding: 20px 15px;
+    }
+
+    .outer>* {
+        margin: 20px 20px;
+    }
+    h1{
+        letter-spacing: 10px;
+    }
 }
 
 @media (min-width: 1024px) {
     body {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
     .outer {
@@ -117,6 +135,6 @@ footer{
     }
 
     .form {
-        font-size: 24px;
+        font-size: 22px;
     }
 }

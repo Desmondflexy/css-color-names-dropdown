@@ -50,6 +50,7 @@ fetch('./colornames.json')
             document.querySelectorAll('.form, .rgb-slider').forEach(element => {
                 element.style.boxShadow = `2px 2px 5px ${colorcode}`
             });
+            document.querySelector('h1').style.textShadow = `2px 2px 7px ${colorcode}`;
         }
 
         sliders.forEach(slider => {
@@ -74,6 +75,7 @@ fetch('./colornames.json')
                 document.querySelectorAll('.form, .rgb-slider').forEach(element => {
                     element.style.boxShadow = `2px 2px 5px ${colorcode}`
                 });
+                document.querySelector('h1').style.textShadow = `2px 2px 7px ${colorcode}`;
             }
         })
 
@@ -98,6 +100,7 @@ fetch('./colornames.json')
             document.querySelectorAll('.form, .rgb-slider').forEach(element => {
                 element.style.boxShadow = `2px 2px 5px ${colorcode}`
             });
+            document.querySelector('h1').style.textShadow = `2px 2px 7px ${colorcode}`;
             if (hex.value.length < 1) {
                 hex.value = '#';
                 heading.innerHTML = hex.value;
