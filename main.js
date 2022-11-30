@@ -4,11 +4,6 @@ const hex = document.querySelector('#hex');
 const rgb = document.querySelector('#rgb');
 const sliders = document.querySelectorAll(".rgb-slider");
 
-// sliders
-const red = document.querySelector('#red');
-const green = document.querySelector('#green');
-const blue = document.querySelector('#blue');
-
 fetch('./colornames.json')
     .then(response => response.json())
     .then(colors => {
@@ -25,85 +20,91 @@ fetch('./colornames.json')
         no_name.setAttribute('hidden', 'hidden');
 
         // initial form values
-        const first_color = selectcolor.value
-        const first_code = colors[first_color];
-        heading.innerHTML = first_color.toUpperCase();
-        heading.style.color = first_code;
-        hex.value = first_code;
-        rgb.innerHTML = hex2rgb(first_code);
+        hex.value = colors[selectcolor.value].hexcode;
+        heading.innerHTML = selectcolor.value.toUpperCase();
+        heading.innerHTML += `<p>${colors[selectcolor.value].family}</p>`;
+        heading.style.color = hex.value;
+        rgb.innerHTML = hex2rgb(hex.value);
 
         sliders.forEach(slider => {
             slider.value = document.getElementById(`rgb-${slider.id}`).textContent;
         })
 
+        document.querySelectorAll('.form, .rgb-slider').forEach(element => {
+            element.style.boxShadow = `2px 2px 5px ${hex.value}`;
+        });
+        document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
+
         selectcolor.onchange = () => {
-            const colorname = selectcolor.value;
-            const colorcode = colors[colorname];
-            heading.style.color = colorcode;
-            heading.innerHTML = colorname.toUpperCase();
-            hex.value = colorcode;
-            rgb.innerHTML = hex2rgb(colorcode);
+            hex.value = colors[selectcolor.value].hexcode;
+            heading.innerHTML = selectcolor.value.toUpperCase();
+            heading.innerHTML += `<p>${colors[selectcolor.value].family}</p>`;
+            heading.style.color = hex.value;
+            rgb.innerHTML = hex2rgb(hex.value);
 
             sliders.forEach(slider => {
                 slider.value = document.getElementById(`rgb-${slider.id}`).textContent;
             })
+
             document.querySelectorAll('.form, .rgb-slider').forEach(element => {
-                element.style.boxShadow = `2px 2px 5px ${colorcode}`
+                element.style.boxShadow = `2px 2px 5px ${hex.value}`;
             });
-            document.querySelector('h1').style.textShadow = `2px 2px 7px ${colorcode}`;
+            document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
         }
 
         sliders.forEach(slider => {
             slider.oninput = () => {
-                const rr = decimal2hex(red.value);
-                const gg = decimal2hex(green.value);
-                const bb = decimal2hex(blue.value);
-                const colorcode = '#' + rr + gg + bb;
-                const colorname = getObjKey(colors, colorcode);
-                heading.style.color = colorcode;
+                const rr = decimal2hex(document.getElementById('red').value);
+                const gg = decimal2hex(document.getElementById('green').value);
+                const bb = decimal2hex(document.getElementById('blue').value);
+                hex.value = '#' + rr + gg + bb;
+                heading.style.color = hex.value;
 
+                const colorname = getObjKey(colors, hex.value);
                 if (colorname !== undefined) {
-                    heading.innerHTML = colorname.toUpperCase();
                     selectcolor.value = colorname;
+                    heading.innerHTML = selectcolor.value.toUpperCase();
+                    heading.innerHTML += `<p>${colors[selectcolor.value].family}</p>`;
                 } else {
-                    heading.innerHTML = colorcode;
                     selectcolor.value = no_name.textContent;
+                    heading.innerHTML = hex.value;
+                    heading.innerHTML += `<p>No defined family</p>`;
                 }
-                hex.value = colorcode;
-                rgb.innerHTML = hex2rgb(colorcode);
+                rgb.innerHTML = hex2rgb(hex.value);
 
                 document.querySelectorAll('.form, .rgb-slider').forEach(element => {
-                    element.style.boxShadow = `2px 2px 5px ${colorcode}`
+                    element.style.boxShadow = `2px 2px 5px ${hex.value}`
                 });
-                document.querySelector('h1').style.textShadow = `2px 2px 7px ${colorcode}`;
+                document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
             }
         })
 
         hex.oninput = () => {
             hex.value = hex.value.toUpperCase();
-            const colorcode = hex.value;
-            const colorname = getObjKey(colors, colorcode);
-            heading.style.color = colorcode;
+            heading.style.color = hex.value;
 
+            const colorname = getObjKey(colors, hex.value);
             if (colorname !== undefined) {
-                heading.innerHTML = colorname.toUpperCase();
                 selectcolor.value = colorname;
+                heading.innerHTML = selectcolor.value.toUpperCase();
+                heading.innerHTML += `<p>${colors[selectcolor.value].family}</p>`;
             } else {
-                heading.innerHTML = colorcode;
                 selectcolor.value = no_name.textContent;
+                heading.innerHTML = hex.value;
+                heading.innerHTML += `<p>No defined family</p>`;
             }
-            rgb.innerHTML = hex2rgb(colorcode);
+            rgb.innerHTML = hex2rgb(hex.value);
 
             sliders.forEach(slider => {
                 slider.value = document.getElementById(`rgb-${slider.id}`).textContent;
             })
             document.querySelectorAll('.form, .rgb-slider').forEach(element => {
-                element.style.boxShadow = `2px 2px 5px ${colorcode}`
+                element.style.boxShadow = `2px 2px 5px ${hex.value}`
             });
-            document.querySelector('h1').style.textShadow = `2px 2px 7px ${colorcode}`;
+            document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
             if (hex.value.length < 1) {
-                hex.value = '#';
-                heading.innerHTML = hex.value;
+                heading.innerHTML = '...';
+                heading.innerHTML += `<p>No color input!</p>`;
             }
         }
     });
@@ -117,9 +118,9 @@ function hex2rgb(str) {
     return `RGB(<span id="rgb-red">${r}</span>, <span id="rgb-green">${g}</span>, <span id="rgb-blue">${b}</span>)`
 }
 
-/**Get an object's key by its value */
+/**Get an object's key by its hexcode value */
 function getObjKey(obj, value) {
-    return Object.keys(obj).find(key => obj[key] === value);
+    return Object.keys(obj).find(key => obj[key]['hexcode'] === value);
 }
 
 /**Convert decimal to a 2-digit hexadecimal number */

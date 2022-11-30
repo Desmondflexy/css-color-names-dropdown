@@ -93,6 +93,13 @@ footer {
     text-align: center;
 }
 
+p{
+    font-size: .7em;
+    font-weight: 400;
+    opacity: .5;
+    font-style: italic;
+}
+
 @media (min-width: 425px) {
     body {
         font-size: .8em;
