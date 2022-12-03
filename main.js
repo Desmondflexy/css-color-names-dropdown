@@ -61,15 +61,17 @@ fetch('./colornames.json')
                 heading.style.color = hex.value;
 
                 const colorname = getObjKey(colors, hex.value);
+                let fam;
                 if (colorname !== undefined) {
                     selectcolor.value = colorname;
                     heading.innerHTML = selectcolor.value.toUpperCase();
-                    heading.innerHTML += `<p>${colors[selectcolor.value].family}</p>`;
+                    fam = `<p>${colors[selectcolor.value].family}</p>`;
                 } else {
                     selectcolor.value = no_name.textContent;
                     heading.innerHTML = hex.value;
-                    heading.innerHTML += `<p>No defined family</p>`;
+                    fam = `<p>No defined family</p>`;
                 }
+                heading.innerHTML += fam;
                 rgb.innerHTML = hex2rgb(hex.value);
 
                 document.querySelectorAll('.form, .rgb-slider').forEach(element => {
