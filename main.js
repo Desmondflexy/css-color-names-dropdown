@@ -33,7 +33,6 @@ fetch('./colornames.json')
         document.querySelectorAll('.form, .rgb-slider').forEach(element => {
             element.style.boxShadow = `2px 2px 5px ${hex.value}`;
         });
-        document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
 
         selectcolor.onchange = () => {
             hex.value = colors[selectcolor.value].hexcode;
@@ -49,7 +48,6 @@ fetch('./colornames.json')
             document.querySelectorAll('.form, .rgb-slider').forEach(element => {
                 element.style.boxShadow = `2px 2px 5px ${hex.value}`;
             });
-            document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
         }
 
         sliders.forEach(slider => {
@@ -77,7 +75,6 @@ fetch('./colornames.json')
                 document.querySelectorAll('.form, .rgb-slider').forEach(element => {
                     element.style.boxShadow = `2px 2px 5px ${hex.value}`
                 });
-                document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
             }
         })
 
@@ -103,7 +100,6 @@ fetch('./colornames.json')
             document.querySelectorAll('.form, .rgb-slider').forEach(element => {
                 element.style.boxShadow = `2px 2px 5px ${hex.value}`
             });
-            document.querySelector('h1').style.textShadow = `2px 2px 7px ${hex.value}`;
             if (hex.value.length < 1) {
                 heading.innerHTML = '...';
                 heading.innerHTML += `<p>No color input!</p>`;
