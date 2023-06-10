@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -42,14 +44,15 @@ body {
 }
 
 h1 {
-    color: #ffffff;
+    color: #0c1845;
     text-align: center;
     font-size: 2.5em;
     padding: 5px;
-    font-family: lobster, cursive;
-    animation-name: changeColor;
+    font-family: kanit, lobster, cursive;
+    font-weight: 700;
+    /* animation-name: changeColor;
     animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
 }
 
 h2 {
@@ -151,10 +154,6 @@ p {
 
     .outer>* {
         margin: 20px 20px;
-    }
-
-    h1 {
-        letter-spacing: 10px;
     }
 }
 
