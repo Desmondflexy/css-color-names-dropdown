@@ -1,22 +1,31 @@
-const selectcolor = document.querySelector('#color');
-const heading = document.querySelector('h2');
-const hex = document.querySelector('#hex');
-const rgb = document.querySelector('#rgb');
-const sliders = document.querySelectorAll(".rgb-slider");
+function main() {
+  const selectcolor = document.querySelector('#color');
+  const heading = document.querySelector('h2');
+  const hex = document.querySelector('#hex');
+  const rgb = document.querySelector('#rgb');
+  const sliders = document.querySelectorAll(".rgb-slider");
 
-fetch('./colornames.json')
-  .then(response => response.json())
-  .then(colors => {
+  // fetch('./colornames.json').then(response => response.json()).then(colors => populate(colors));
+  populate();
 
+  async function populate() {
+    const request = new Request("./colornames.json");
+    const response = await fetch(request);
+    const colors = await response.json();
+
+    populateApp(colors);
+  }
+
+  function populateApp(colors) {
     // populate the select options
     Object.keys(colors).sort().forEach(colorname => {
       const option = document.createElement('option');
       option.textContent = colorname;
-      selectcolor.appendChild(option);
+      selectcolor.append(option);
     })
     const no_name = document.createElement('option');
     no_name.textContent = 'No name defined';
-    selectcolor.appendChild(no_name);
+    selectcolor.append(no_name);
     no_name.setAttribute('hidden', 'hidden');
 
     // initial form values
@@ -105,27 +114,30 @@ fetch('./colornames.json')
         heading.innerHTML += `<p>No color input!</p>`;
       }
     }
-  });
-
-
-/**Convert color in HEX format to RGB format */
-function hex2rgb(str) {
-  const r = parseInt(str.slice(1, 3), 16);
-  const g = parseInt(str.slice(3, 5), 16);
-  const b = parseInt(str.slice(5, 7), 16);
-  return `RGB(<span id="rgb-red">${r}</span>, <span id="rgb-green">${g}</span>, <span id="rgb-blue">${b}</span>)`
-}
-
-/**Get an object's key by its hexcode value */
-function getObjKey(obj, value) {
-  return Object.keys(obj).find(key => obj[key]['hexcode'] === value);
-}
-
-/**Convert decimal to a 2-digit hexadecimal number */
-function decimal2hex(n) {
-  let hex = Number(n).toString(16).toUpperCase();
-  if (hex.length < 2) {
-    hex = '0' + hex;
   }
-  return hex;
+
+  /**Convert color in HEX format to RGB format */
+  function hex2rgb(str) {
+    const r = parseInt(str.slice(1, 3), 16);
+    const g = parseInt(str.slice(3, 5), 16);
+    const b = parseInt(str.slice(5, 7), 16);
+    return `RGB(<span id="rgb-red">${r}</span>, <span id="rgb-green">${g}</span>, <span id="rgb-blue">${b}</span>)`
+  }
+
+  /**Get an object's key by its hexcode value */
+  function getObjKey(obj, value) {
+    return Object.keys(obj).find(key => obj[key]['hexcode'] === value);
+  }
+
+  /**Convert decimal to a 2-digit hexadecimal number */
+  function decimal2hex(n) {
+    let hex = Number(n).toString(16).toUpperCase();
+    if (hex.length < 2) {
+      hex = '0' + hex;
+    }
+    return hex;
+  }
 }
+
+main();
+
