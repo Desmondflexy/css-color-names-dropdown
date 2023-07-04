@@ -5,12 +5,14 @@ function main() {
   const rgb = document.querySelector('#rgb');
   const sliders = document.querySelectorAll(".rgb-slider");
 
-  // fetch('./colornames.json').then(response => response.json()).then(colors => populate(colors));
+  // fetch('./colornames.json')
+  //   .then(response => response.json())
+  //   .then(colors => populate(colors));
+
   populate();
 
   async function populate() {
-    const request = new Request("./colornames.json");
-    const response = await fetch(request);
+    const response = await fetch('./colornames.json');
     const colors = await response.json();
 
     populateApp(colors);
